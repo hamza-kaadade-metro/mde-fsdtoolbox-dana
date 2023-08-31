@@ -1,0 +1,5 @@
+{
+  "editor.formatOnSave": true,
+  "[typescript]": { "editor.codeActionsOnSave": { "source.organizeImports": true } },
+  "typescript.preferences.importModuleSpecifier": "relative"
+}

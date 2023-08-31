@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    /* Visithttps://aka.ms/tsconfig.jsontoreadmoreaboutthisfile*/ /* Basic Options */ "incremental": true /* Enableincrementalcompilation*/,
+    "target": "es6" /* SpecifyECMAScripttargetversion: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017‘,     'ES2018', 'ES2019', 'ES2020', or'ESNEXT'. */,
+    "module": "commonjs" /* Specifymodulecode generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or'ESNext'. */,
+    "outDir": "build" /* Redirect outputstructuretothedirectory. */,
+    "downlevelIteration": true /* Providefullsupport foriterablesin 'for-of', spread, and destructuringwhentargeting'ES5' or'ES3'. */,
+    "resolveJsonModule": true,
+    /* StrictType-Checking Options */ "strict": false /* Enableall stricttype-checkingoptions. */,
+    /* Module Resolution Options */ "moduleResolution": "node" /* Specifymoduleresolutionstrategy: 'node' (Node.js) or'classic' (TypeScriptpre-1.6). */,
+    "baseUrl": "./" /* Base directorytoresolvenon-absolute modulenames. */,
+    "esModuleInterop": true /* EnablesemitinteroperabilitybetweenCommonJSand ES Modules via creationofnamespaceobjectsforall imports. Implies'allowSyntheticDefaultImports'. */,
+    /* Experimental Options */ "experimentalDecorators": true /* Enablesexperimental support forES7 decorators. */,
+    "emitDecoratorMetadata": true /* Enablesexperimental support foremittingtype metadatafordecorators. */,
+    /* AdvancedOptions */ "skipLibCheck": true /* Skip type checkingofdeclarationfiles. */,
+    "forceConsistentCasingInFileNames": true /* Disallowinconsistently-casedreferencestothesame file. */
+  }
+}

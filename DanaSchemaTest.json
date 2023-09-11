@@ -1,0 +1,226 @@
+{
+  "name": "fsd_toolbox_test_dana",
+  "doc": "MDE FSDTOOLBOX",
+  "type": "record",
+  "namespace": "customer_toolbox",
+  "gdpr_info": {
+    "table_PII": "no",
+    "column_PII": []
+  },
+  "upi_info": ["bkz"],
+  "fields": [
+    {
+      "name": "bkz",
+      "type": "int",
+      "doc": "Interne ID des Markts (Primary Key in Originaltabelle)"
+    },
+    {
+      "name": "vertriebslinie",
+      "type": ["null", "string"],
+      "doc": "vertriebslinie"
+    },
+    {
+      "name": "marktname",
+      "type": ["null", "string"],
+      "doc": "marktname"
+    },
+    {
+      "name": "plz",
+      "type": ["null", "string"],
+      "doc": "plz"
+    },
+    {
+      "name": "ort",
+      "type": ["null", "string"],
+      "doc": "ort"
+    },
+    {
+      "name": "strasse",
+      "type": ["null", "string"],
+      "doc": "strasse"
+    },
+    {
+      "name": "telefonnummer",
+      "type": ["null", "string"],
+      "doc": "telefonnummer"
+    },
+    {
+      "name": "faxnummer",
+      "type": ["null", "string"],
+      "doc": "faxnummer"
+    },
+    {
+      "name": "webseite",
+      "type": ["null", "string"],
+      "doc": "webseite"
+    },
+    {
+      "name": "emailadresse",
+      "type": ["null", "string"],
+      "doc": "emailadresse"
+    },
+    {
+      "name": "emailadresse_kd_eingang",
+      "type": ["null", "string"],
+      "doc": "emailadresse_kd_eingang"
+    },
+    {
+      "name": "marktleiter_vorname",
+      "type": ["null", "string"],
+      "doc": "marktleiter_vorname"
+    },
+    {
+      "name": "marktleiter_nachname",
+      "type": ["null", "string"],
+      "doc": "marktleiter_nachname"
+    },
+    {
+      "name": "marktleiter_anrede",
+      "type": ["null", "string"],
+      "doc": "marktleiter_anrede"
+    },
+    {
+      "name": "marktleiter_handynummer",
+      "type": ["null", "string"],
+      "doc": "marktleiter_handynummer"
+    },
+    {
+      "name": "marktleiter_telefonnummer",
+      "type": ["null", "string"],
+      "doc": "marktleiter_telefonnummer"
+    },
+    {
+      "name": "marktleiter_interim",
+      "type": ["null", "boolean"],
+      "doc": "marktleiter_interim"
+    },
+    {
+      "name": "region_id",
+      "type": ["null", "int"],
+      "doc": "region_id"
+    },
+    {
+      "name": "lat",
+      "type": ["null", "string"],
+      "doc": "lat"
+    },
+    {
+      "name": "lng",
+      "type": ["null", "string"],
+      "doc": "lng"
+    },
+    {
+      "name": "channelstore",
+      "type": [
+        "null",
+        {
+          "type": "float",
+          "logicalType": "decimal"
+        }
+      ],
+      "doc": "channelstore"
+    },
+    {
+      "name": "mmslink",
+      "type": ["null", "string"],
+      "doc": "mmslink"
+    },
+    {
+      "name": "gln_nr",
+      "type": [
+        "null",
+        {
+          "type": "float",
+          "logicalType": "decimal"
+        }
+      ],
+      "doc": "gln_nr"
+    },
+    {
+      "name": "art",
+      "type": ["null", "string"],
+      "doc": "art"
+    },
+    {
+      "name": "aktiv",
+      "type": ["null", "boolean"],
+      "doc": "aktiv"
+    },
+    {
+      "name": "last_edit_user",
+      "type": ["null", "string"],
+      "doc": "last_edit_user"
+    },
+    {
+      "name": "emailadresse_selly",
+      "type": ["null", "string"],
+      "doc": "emailadresse_selly"
+    },
+    {
+      "name": "customer_relevant",
+      "type": ["null", "int"],
+      "doc": "customer_relevant"
+    },
+    {
+      "name": "profit_center",
+      "type": ["null", "int"],
+      "doc": "profit_center"
+    },
+    {
+      "name": "marktleiter_emailadresse",
+      "type": ["null", "string"],
+      "doc": "marktleiter_emailadresse"
+    },
+    {
+      "name": "cc_store",
+      "type": ["null", "int"],
+      "doc": "cc_store"
+    },
+    {
+      "name": "bundesland",
+      "type": ["null", "string"],
+      "doc": "bundesland"
+    },
+    {
+      "name": "verkaufsflaeche",
+      "type": [
+        "null",
+        {
+          "type": "float",
+          "logicalType": "decimal"
+        }
+      ],
+      "doc": "verkaufsflaeche"
+    },
+    {
+      "name": "channelstore_valid_from",
+      "type": ["null", { "type": "int", "logicalType": "date" }],
+      "default": null,
+      "doc": "channelstore_valid_from"
+    },
+    {
+      "name": "regions",
+      "doc": "regions",
+      "default": null,
+      "type": [
+        "null",
+        {
+          "name": "region",
+          "type": ["null", "record"],
+          "fields": [
+            {
+              "name": "id",
+              "type": "int",
+              "doc": "id"
+            },
+            {
+              "name": "regionlong",
+              "type": ["null", "string"],
+              "doc": "regionlong"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

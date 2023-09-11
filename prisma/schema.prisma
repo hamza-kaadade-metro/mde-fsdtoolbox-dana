@@ -1,0 +1,267 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model failed_jobs {
+  id         BigInt   @id @default(autoincrement())
+  uuid       String   @unique(map: "failed_jobs_uuid_unique") @db.VarChar(255)
+  connection String
+  queue      String
+  payload    String
+  exception  String
+  failed_at  DateTime @default(now()) @db.Timestamp(0)
+}
+
+model markets {
+  bkz                           Int       @id
+  vertriebslinie                String?   @db.VarChar(15)
+  marktname                     String?   @db.VarChar(35)
+  plz                           String?   @db.VarChar(5)
+  ort                           String?   @db.VarChar(25)
+  strasse                       String?   @db.VarChar(40)
+  telefonnummer                 String?   @db.VarChar(25)
+  faxnummer                     String?   @db.VarChar(25)
+  webseite                      String?   @db.VarChar(75)
+  emailadresse                  String?   @db.VarChar(25)
+  emailadresse_kd_eingang       String?   @db.VarChar(45)
+  marktleiter_vorname           String?   @db.VarChar(25)
+  marktleiter_nachname          String?   @db.VarChar(35)
+  marktleiter_anrede            String?   @db.VarChar(4)
+  marktleiter_handynummer       String?   @db.VarChar(40)
+  marktleiter_telefonnummer     String?   @db.VarChar(30)
+  marktleiter_interim           Boolean?  @default(false)
+  region_id                     Int?
+  vip_eingang                   Boolean?  @default(false)
+  tankstelle                    Boolean?  @default(false)
+  humidor                       Boolean?  @default(false)
+  liquer_lounge                 Boolean?  @default(false)
+  fisch                         Boolean?  @default(false)
+  backshop                      Boolean?  @default(false)
+  parkplatz                     Boolean?  @default(false)
+  getraenkemarkt                Boolean?  @default(false)
+  paketversand                  Boolean?  @default(false)
+  profitipp                     Boolean?  @default(false)
+  belieferung                   Boolean?  @default(false)
+  gastrofachabt                 Boolean?  @default(false)
+  trainingsakademie             Boolean?  @default(false)
+  restaurant                    Boolean?  @default(false)
+  lat                           String?   @db.VarChar(10)
+  lng                           String?   @db.VarChar(10)
+  channelstore                  Decimal?  @db.Decimal(20, 0)
+  channelstore_valid_from       DateTime? @db.Date
+  mmslink                       String?   @db.VarChar(200)
+  gln_nr                        Decimal?  @db.Decimal(20, 0)
+  art                           String?   @db.VarChar(20)
+  aktiv                         Boolean?  @default(false)
+  last_edit_date                DateTime? @db.Date
+  last_edit_user                String?   @db.VarChar(50)
+  emailadresse_selly            String?   @db.VarChar(50)
+  betty_ready_from              DateTime? @db.Date
+  hier_lfd_vl4                  Decimal?  @db.Decimal(20, 0)
+  hier_lfd_vl11                 Decimal?  @db.Decimal(20, 0)
+  emailadresse_fischabteilung   String?   @db.VarChar(200)
+  emailadresse_fleischabteilung String?   @db.VarChar(200)
+  mmstoreserver                 String?   @db.VarChar(20)
+  customer_relevant             Decimal?  @db.Decimal(20, 0)
+  profit_center                 Decimal?  @db.Decimal(20, 0)
+  marktleiter_emailadresse      String?   @db.VarChar(45)
+  cc_store                      Decimal?  @db.Decimal(20, 0)
+  ip_renumbering                DateTime? @db.Date
+  bundesland                    String?   @db.VarChar(255)
+  verkaufsflaeche               Decimal?  @db.Decimal(20, 0)
+  created_at                    DateTime? @db.Timestamp(0)
+  updated_at                    DateTime? @db.Timestamp(0)
+  region                        regions?  @relation(fields: [region_id], references: [id])
+
+  //@@index([region_id], map: "marktliste_region_id_idx")
+}
+
+model migrations {
+  id        Int    @id @default(autoincrement())
+  migration String @db.VarChar(255)
+  batch     Int
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model openings {
+  bkz               Decimal?  @db.Decimal(3, 0)
+  dayofweek         String?   @db.VarChar(15)
+  open_hour         String?   @db.VarChar(5)
+  close_hour        String?   @db.VarChar(5)
+  overridestartdate DateTime? @db.Date
+  overrideenddate   DateTime? @db.Date
+  closed            Boolean?  @default(false)
+  einlass           String?   @db.VarChar(5)
+  unique_id         Decimal?  @db.Decimal(4, 0)
+  dayofweek_id      Decimal?  @db.Decimal(1, 0)
+  customer_status   String?   @db.VarChar(15)
+  created_at        DateTime? @db.Timestamp(0)
+  updated_at        DateTime? @db.Timestamp(0)
+
+  @@ignore
+}
+
+model personal_access_tokens {
+  id             BigInt    @id @default(autoincrement())
+  tokenable_type String    @db.VarChar(255)
+  tokenable_id   BigInt
+  name           String    @db.VarChar(255)
+  token          String    @unique(map: "personal_access_tokens_token_unique") @db.VarChar(64)
+  abilities      String?
+  last_used_at   DateTime? @db.Timestamp(0)
+  expires_at     DateTime? @db.Timestamp(0)
+  created_at     DateTime? @db.Timestamp(0)
+  updated_at     DateTime? @db.Timestamp(0)
+
+  @@index([tokenable_type, tokenable_id], map: "personal_access_tokens_tokenable_type_tokenable_id_index")
+}
+
+model regions {
+  id             Int       @id
+  region         String    @db.VarChar(50)
+  region_long    String    @db.VarChar(120)
+  rm             String?   @db.VarChar(50)
+  rm_assistenz   String?   @db.VarChar(50)
+  rm_email       String?   @db.VarChar(50)
+  rm_telefon     String?   @db.VarChar(50)
+  vl             String?   @db.VarChar(50)
+  vl_assistenz   String?   @db.VarChar(50)
+  vl_email       String?   @db.VarChar(50)
+  vl_telefon     String?   @db.VarChar(50)
+  mark_as_new    DateTime? @db.Date
+  rm_upn         String?   @db.VarChar(100)
+  vl_upn         String?   @db.VarChar(100)
+  color          String?   @db.VarChar(20)
+  last_edit_user String?   @db.VarChar(50)
+  last_edit_date DateTime? @db.Date
+  created_at     DateTime? @db.Timestamp(0)
+  updated_at     DateTime? @db.Timestamp(0)
+  rvl            String?   @db.VarChar(50)
+  rvl_email      String?   @db.VarChar(50)
+  rvl_telefon    String?   @db.VarChar(50)
+  rvl_upn        String?   @db.VarChar(100)
+  markets        markets[]
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model t_marktliste {
+  bkz                           String?   @db.VarChar(3)
+  vertriebslinie                String?   @db.VarChar(15)
+  marktname                     String?   @db.VarChar(35)
+  plz                           String?   @db.VarChar(5)
+  ort                           String?   @db.VarChar(25)
+  strasse                       String?   @db.VarChar(40)
+  telefonnummer                 String?   @db.VarChar(25)
+  faxnummer                     String?   @db.VarChar(25)
+  webseite                      String?   @db.VarChar(75)
+  emailadresse                  String?   @db.VarChar(25)
+  emailadresse_kd_eingang       String?   @db.VarChar(45)
+  marktleiter_vorname           String?   @db.VarChar(25)
+  marktleiter_nachname          String?   @db.VarChar(35)
+  marktleiter_anrede            String?   @db.VarChar(4)
+  marktleiter_handynummer       String?   @db.VarChar(40)
+  marktleiter_telefonnummer     String?   @db.VarChar(30)
+  marktleiter_interim           Decimal?  @db.Decimal
+  region                        String?   @db.VarChar(60)
+  region_id                     Decimal?  @db.Decimal
+  vip_eingang                   Decimal?  @db.Decimal
+  tankstelle                    Decimal?  @db.Decimal
+  humidor                       Decimal?  @db.Decimal
+  liquer_lounge                 Decimal?  @db.Decimal
+  fisch                         Decimal?  @db.Decimal
+  backshop                      Decimal?  @db.Decimal
+  parkplatz                     Decimal?  @db.Decimal
+  getraenkemarkt                Decimal?  @db.Decimal
+  paketversand                  Decimal?  @db.Decimal
+  profitipp                     Decimal?  @db.Decimal
+  belieferung                   Decimal?  @db.Decimal
+  gastrofachabt                 Decimal?  @db.Decimal
+  trainingsakademie             Decimal?  @db.Decimal
+  restaurant                    Decimal?  @db.Decimal
+  lat                           String?   @db.VarChar(10)
+  lng                           String?   @db.VarChar(10)
+  channelstore                  Decimal?  @db.Decimal
+  channelstore_valid_from       DateTime? @db.Date
+  mmslink                       String?   @db.VarChar(200)
+  gln_nr                        Decimal?  @db.Decimal
+  art                           String?   @db.VarChar(20)
+  aktiv                         Decimal?  @db.Decimal
+  last_edit_date                DateTime? @db.Date
+  last_edit_user                String?   @db.VarChar(50)
+  emailadresse_selly            String?   @db.VarChar(50)
+  betty_ready_from              DateTime? @db.Date
+  hier_lfd_vl4                  Decimal?  @db.Decimal
+  hier_lfd_vl11                 Decimal?  @db.Decimal
+  emailadresse_fischabteilung   String?   @db.VarChar(200)
+  emailadresse_fleischabteilung String?   @db.VarChar(200)
+  mmstoreserver                 String?   @db.VarChar(20)
+  customer_relevant             Decimal?  @db.Decimal
+  profit_center                 Decimal?  @db.Decimal
+  marktleiter_emailadresse      String?   @db.VarChar(45)
+  cc_store                      Decimal?  @db.Decimal
+  ip_renumbering                DateTime? @db.Date
+  bundesland                    String?   @db.VarChar
+  verkaufsflaeche               Decimal?  @db.Decimal
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model t_marktliste_opening {
+  bkz               Decimal?  @db.Decimal(3, 0)
+  dayofweek         String?   @db.VarChar(15)
+  open_hour         String?   @db.VarChar(5)
+  close_hour        String?   @db.VarChar(5)
+  overridestartdate DateTime? @db.Date
+  overrideenddate   DateTime? @db.Date
+  closed            Decimal?  @db.Decimal(1, 0)
+  einlass           String?   @db.VarChar(5)
+  unique_id         Decimal?  @db.Decimal(4, 0)
+  dayofweek_id      Decimal?  @db.Decimal(1, 0)
+  customer_status   String?   @db.VarChar(15)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model t_marktliste_regionen {
+  id_region       Decimal   @db.Decimal
+  region          String?   @db.VarChar(50)
+  region_langname String?   @db.VarChar(120)
+  rm              String?   @db.VarChar(50)
+  rm_assistenz    String?   @db.VarChar(50)
+  rm_email        String?   @db.VarChar(50)
+  rm_telefon      String?   @db.VarChar(50)
+  vl              String?   @db.VarChar(50)
+  vl_assistenz    String?   @db.VarChar(50)
+  vl_email        String?   @db.VarChar(50)
+  vl_telefon      String?   @db.VarChar(50)
+  last_edit_date  DateTime? @db.Date
+  last_edit_user  String?   @db.VarChar(50)
+  color           String?   @db.VarChar(20)
+  mark_as_new     DateTime? @db.Date
+  rm_upn          String?   @db.VarChar(100)
+  vl_upn          String?   @db.VarChar(100)
+  rvl             String?   @db.VarChar
+  rvl_email       String?   @db.VarChar
+  rvl_telefon     String?   @db.VarChar
+  rvl_upn         String?   @db.VarChar
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model umsatz_live {
+  netto  Decimal?  @db.Decimal
+  bkz    Decimal?  @db.Decimal(7, 0)
+  art    String?   @db.VarChar(5)
+  datum  DateTime? @db.Date
+  stunde Decimal?  @db.Decimal
+
+  @@ignore
+}

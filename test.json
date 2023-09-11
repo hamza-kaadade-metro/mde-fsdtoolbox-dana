@@ -1,0 +1,20 @@
+{
+  "bkz": 12345,
+  "vertriebslinie": "Retail",
+  "marktname": "Market ABC",
+  "plz": "12345",
+  "ort": "City",
+  "strasse": "Street",
+  "telefonnummer": "+1234567890",
+  "faxnummer": "+1234567891",
+  "webseite": "https://example.com",
+  "emailadresse": "example@example.com",
+  "emailadresse_kd_eingang": "customer@example.com",
+  "marktleiter_vorname": "John",
+  "marktleiter_nachname": "Doe",
+  "marktleiter_anrede": "Mr",
+  "marktleiter_handynummer": "+1234567892",
+  "marktleiter_telefonnummer": "+1234567893",
+  "marktleiter_interim": true,
+  "region_id": 1
+}

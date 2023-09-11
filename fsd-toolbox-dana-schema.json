@@ -1,0 +1,217 @@
+{
+  "name": "fsd_toolbox_customer_fsd_data",
+  "doc": "MDE FSDTOOLBOX",
+  "type": "record",
+  "namespace": "customer_toolbox",
+  "gdpr_info": {
+    "table_PII": "no",
+    "column_PII": []
+  },
+  "fields": [
+    {
+      "name": "store_key",
+      "type": ["null", "int"],
+      "doc": "store_key"
+    },
+    {
+      "name": "cust_no",
+      "type": ["null", "string"],
+      "doc": "cust_no"
+    },
+    {
+      "name": "fulfillment_type_cd",
+      "type": ["null", "string"],
+      "doc": "fulfillment_type_cd"
+    },
+    {
+      "name": "fulfillment_type_date",
+      "type": [
+        "null",
+        {
+          "type": "long",
+          "logicalType": "timestamp-millis"
+        }
+      ],
+      "doc": "fulfillment_type_date must be converted"
+    },
+    {
+      "name": "single_invoice",
+      "type": ["null", "boolean"],
+      "doc": "single_invoice"
+    },
+    {
+      "name": "expected_order_income_type_cd",
+      "type": ["null", "int"],
+      "doc": "expected_order_income_type_cd"
+    },
+    {
+      "name": "expected_call_time",
+      "type": ["null", "string"],
+      "doc": "expected_call_time"
+    },
+    {
+      "name": "internalcomment",
+      "type": ["null", "string"],
+      "doc": "internalcomment"
+    },
+    {
+      "name": "generalpickingcomment",
+      "type": ["null", "string"],
+      "doc": "generalpickingcomment"
+    },
+    {
+      "name": "generaldeliverycomment",
+      "type": ["null", "string"],
+      "doc": "generaldeliverycomment"
+    },
+    {
+      "name": "generalinvoicecomment",
+      "type": ["null", "string"],
+      "doc": "generalinvoicecomment"
+    },
+    {
+      "name": "no_item_replacement_ind",
+      "type": ["null", "boolean"],
+      "doc": "no_item_replacement_ind"
+    },
+    {
+      "name": "primarydeliverystore",
+      "type": ["null", "int"],
+      "doc": "primarydeliverystore"
+    },
+    {
+      "name": "delivery_aggreement_cd",
+      "type": ["null", "string"],
+      "doc": "delivery_aggreement_cd"
+    },
+    {
+      "name": "delivery_aggreement_info",
+      "type": ["null", "string"],
+      "doc": "delivery_aggreement_info"
+    },
+    {
+      "name": "ispaperinvoicecustomer",
+      "type": ["null", "boolean"],
+      "doc": "ispaperinvoicecustomer"
+    },
+    {
+      "name": "minimal_order_value",
+      "type": ["null", "float"],
+      "doc": "minimal_order_value"
+    },
+    {
+      "name": "order_lead_time",
+      "type": ["null", "float"],
+      "doc": "order_lead_time"
+    },
+    {
+      "name": "fulfillment_type_break_ind",
+      "type": ["null", "boolean"],
+      "doc": "fulfillment_type_break_ind"
+    },
+    {
+      "name": "fulfillment_type_break_date",
+      "type": [
+        "null",
+        {
+          "type": "long",
+          "logicalType": "timestamp-millis"
+        }
+      ],
+      "doc": "fulfillment_type_break_date"
+    },
+    {
+      "name": "channelstore",
+      "type": [
+        "null",
+        {
+          "type": "float",
+          "logicalType": "decimal"
+        }
+      ],
+      "doc": "channelstore"
+    },
+    {
+      "name": "expected_payment_type_cd",
+      "type": ["null", "string"],
+      "doc": "expected_payment_type_cd"
+    },
+    {
+      "name": "payment_type_reason",
+      "type": ["null", "string"],
+      "doc": "payment_type_reason"
+    },
+    {
+      "name": "fsd_potential_prepartion_ind",
+      "type": ["null", "boolean"],
+      "doc": "fsd_potential_prepartion_ind"
+    },
+    {
+      "name": "fsd_potential_prepartion_date",
+      "type": ["null", "string"],
+      "doc": "fsd_potential_prepartion_date"
+    },
+    {
+      "name": "expected_first_delivery_date",
+      "type": [
+        "null",
+        {
+          "type": "long",
+          "logicalType": "timestamp-millis"
+        }
+      ],
+      "default": null,
+      "doc": "expected_first_delivery_date"
+    },
+    {
+      "name": "no_fsd_option_ind",
+      "type": ["null", "boolean"],
+      "doc": "no_fsd_option_ind"
+    },
+    {
+      "name": "no_fsd_option_reason",
+      "type": ["null", "string"],
+      "doc": "no_fsd_option_reason"
+    },
+    {
+      "name": "deposit_handling_ind",
+      "type": ["null", "boolean"],
+      "doc": "deposit_handling_ind"
+    },
+    {
+      "name": "customer_door_key",
+      "type": ["null", "string"],
+      "doc": "customer_door_key"
+    },
+    {
+      "name": "customer_tg_type",
+      "type": ["null", "string"],
+      "doc": "customer_tg_type"
+    },
+    {
+      "name": "expected_order_income_reason",
+      "type": ["null", "string"],
+      "doc": "expected_order_income_reason"
+    },
+    {
+      "name": "nostopping",
+      "type": ["null", "boolean"],
+      "doc": "nostopping"
+    },
+    {
+      "name": "further_details_required",
+      "type": ["null", "boolean"],
+      "doc": "further_details_required"
+    },
+    {
+      "name": "feedback_fsd_delivery_team",
+      "type": ["null", "boolean"],
+      "doc": "feedback_fsd_delivery_team"
+    },
+    {
+      "name": "no_special_handling_needed_ind",
+      "type": ["null", "boolean"],
+      "doc": "no_special_handling_needed_ind"
+    }
+  ]
+}
